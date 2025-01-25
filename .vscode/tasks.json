@@ -1,0 +1,125 @@
+{
+  // For more information, visit: https://go.microsoft.com/fwlink/?LinkId=733558
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Local Dev",
+      "dependsOn": ["Angular UI", "Server"],
+      "dependsOrder": "parallel",
+      "icon": {
+        "color": "terminal.ansiGreen",
+        "id": "play"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Angular UI",
+      "type": "npm",
+      "script": "start",
+      "icon": {
+        "color": "terminal.ansiMagenta",
+        "id": "browser"
+      },
+      "presentation": {
+        "group": "local-dev",
+        "panel": "shared"
+      },
+      "problemMatcher": {
+        "owner": "typescript",
+        "pattern": "$tsc",
+        "background": {
+          "beginsPattern": {
+            "regexp": "(.*?)"
+          },
+          "endsPattern": {
+            "regexp": "bundle generation complete"
+          }
+        }
+      }
+    },
+    {
+      "label": "Server",
+      "type": "npm",
+      "script": "server",
+      "icon": {
+        "color": "terminal.ansiGreen",
+        "id": "server"
+      },
+      "presentation": {
+        "group": "local-dev",
+        "panel": "shared"
+      },
+      "problemMatcher": {
+        "owner": "typescript",
+        "pattern": "$tsc"
+      }
+    },
+    {
+      "label": "Unit Tests",
+      "type": "npm",
+      "script": "test",
+      "icon": {
+        "color": "terminal.ansiCyan",
+        "id": "beaker"
+      },
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "typescript",
+        "pattern": "$tsc",
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": {
+            "regexp": "(.*?)"
+          },
+          "endsPattern": {
+            "regexp": "bundle generation complete"
+          }
+        }
+      }
+    },
+    {
+      "label": "Unit Tests + Coverage",
+      "type": "npm",
+      "script": "test-coverage",
+      "icon": {
+        "color": "terminal.ansiCyan",
+        "id": "beaker"
+      },
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "typescript",
+        "pattern": "$tsc",
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": {
+            "regexp": "(.*?)"
+          },
+          "endsPattern": {
+            "regexp": "bundle generation complete"
+          }
+        }
+      }
+    },
+    {
+      "label": "View Unit Test Coverage Report",
+      "icon": {
+        "color": "terminal.ansiCyan",
+        "id": "preview"
+      },
+      "command": "explorer",
+      "windows": {
+        "command": "explorer.exe"
+      },
+      "presentation": {
+        "group": "nest-testing",
+        "echo": false,
+        "reveal": "never",
+        "focus": false,
+        "showReuseMessage": false,
+        "clear": true
+      },
+      "args": ["${workspaceFolder}\\coverage\\angular-testing-course\\index.html"],
+      "problemMatcher": []
+    }
+  ]
+}

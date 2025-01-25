@@ -1,0 +1,23 @@
+{
+  "files.exclude": {
+    "**/.gitignore": true,
+    "**/.gitkeep": true,
+    ".angular": true,
+    ".eslintcache": true,
+    ".prettierrc": true,
+    "junit.xml": true,
+    "coverage": true,
+    "dist": true,
+    "node_modules": true
+  },
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "$(capture).spec.ts, $(capture).model.ts",
+    "tsconfig.json": "tsconfig.*.json",
+    "package.json": "package-lock.json"
+  },
+
+  //Code Formatting
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+}
