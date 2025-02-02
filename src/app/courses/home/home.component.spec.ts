@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { ComponentFixture, fakeAsync, flush, TestBed, tick } from "@angular/core/testing";
 import { CoursesModule } from "../courses.module";
 import { DebugElement } from "@angular/core";
 
@@ -73,19 +73,20 @@ describe("HomeComponent", () => {
     expect(tabEls[1].nativeElement.textContent).toEqual("Advanced");
   });
 
-  it("should display advanced courses when tab clicked", () => {
+  it("should display advanced courses when tab clicked", fakeAsync(() => {
     injectedCoursesService.findAllCourses.and.returnValue(of(setupCourses()));
 
     fixture.detectChanges();
 
     const tabEls = debugEl.queryAll(By.css(".mdc-tab"));
     click(tabEls[1]);
-
+    fixture.detectChanges();
+    flush();
     fixture.detectChanges();
 
     const cardTitleEls = debugEl.queryAll(By.css(".mat-mdc-card-title"));
 
     expect(cardTitleEls.length).toBeGreaterThan(0);
     expect(cardTitleEls[0].nativeElement.textContent).toContain("Angular Security Course");
-  });
+  }));
 });
