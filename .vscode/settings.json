@@ -3,9 +3,6 @@
     "**/.gitignore": true,
     "**/.gitkeep": true,
     ".angular": true,
-    "junit.xml": true,
-    "coverage": true,
-    "dist": true,
     "node_modules": true
   },
   "explorer.fileNesting.expand": false,
